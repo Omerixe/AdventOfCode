@@ -1,15 +1,14 @@
-package ch.omni.aoc.year2019
 
+package ch.omni.aoc.year2019
+/*
 object Day14 {
 
-    fun part1(inputMap: Map<String, Pair<Int, List<Pair<String, Int>>>>){
+    fun part1(inputMap: Map<String, Pair<Int, List<Pair<String, Int>>>>) {
         val fuel = inputMap["FUEL"]
         var ore = 0
         val restList: MutableMap<String, Int> = mutableMapOf()
 
     }
-
-
 
     fun test1() {
         val input = "10 ORE => 10 A\n" +
@@ -23,14 +22,14 @@ object Day14 {
         println(map)
     }
 
-    private fun createInputMap(input: String): Map<String, Pair<Int, List<Pair<String, Int>>>>{
+    private fun createInputMap(input: String): Map<String, Pair<Int, List<Pair<String, Int>>>> {
         val lines = input.split("\n")
         val outputMap: MutableMap<String, Pair<Int, List<Pair<String, Int>>>> = mutableMapOf()
-        for (line in lines){
+        for (line in lines) {
             val parts = line.split(" => ")
             val ingredients = parts[0].split(", ")
             val ingredientList: MutableList<Pair<String, Int>> = mutableListOf()
-            for (ing in ingredients){
+            for (ing in ingredients) {
                 val pt = ing.split(" ")
                 ingredientList.add(Pair(pt[1], pt[0].toInt()))
             }
@@ -39,8 +38,23 @@ object Day14 {
         }
         return outputMap
     }
+
+    class Test(val initialMap: Map<String, Pair<Int, List<Pair<String, Int>>>>) {
+        val restMap: MutableMap<String, Int> = mutableMapOf()
+        var ore: Int = 0
+
+        fun doIt(material: String, amount: Int) {
+            if (material == "ORE") {
+                ore += amount
+            }
+            val reaction = initialMap.getValue(material)
+            for (neededMat in reaction.second) {
+
+            }
+        }
+    }
 }
 
 fun main(args: Array<String>) {
     Day14.test1()
-}
+}*/

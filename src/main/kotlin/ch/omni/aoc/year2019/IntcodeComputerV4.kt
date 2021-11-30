@@ -19,6 +19,20 @@ class IntcodeComputerV4(input: List<Long>, verb: Long? = null, noun: Long? = nul
         }
     }
 
+    fun copy(manualMode: Boolean = false, returnOnOutput: Boolean = false): IntcodeComputerV4 {
+        val new = IntcodeComputerV4(stateList, manualMode = manualMode, returnOnOutput = returnOnOutput)
+        new.addedMemory.putAll(addedMemory)
+        new.instPointer = instPointer
+        new.relativeBase = relativeBase
+        return new
+    }
+
+    fun setMemoryAtAddress(address: Int, value: Long) {
+        stateList[address] = value
+    }
+
+    fun getInputIdx() = inputIdx
+
     fun calculate(inputs: List<Long> = listOf()): Pair<List<Long>, List<Long>> {
         if (isDone) {
             return Pair(stateList, listOf())
