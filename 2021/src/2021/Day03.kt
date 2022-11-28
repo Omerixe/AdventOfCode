@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -18,7 +20,7 @@ fun main() {
 
     /*val input = dummyInput.split("\n")*/
 
-    val input = File("resources/input03.txt")
+    val input = File(ClassLoader.getSystemResource("2021/input03.txt").toURI())
         .readLines()
 
     val numbers = input.map(String::toCharArray)

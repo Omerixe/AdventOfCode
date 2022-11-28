@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 import kotlin.math.abs
 
@@ -20,7 +22,7 @@ fun main() {
 
     //val input = dummyInput.split("\n")
 
-    val input = File("resources/input05.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input05.txt").toURI()).readLines()
 
     val ventLines = input.map { line ->
         line.split(" -> ").map { it.split(",").map(String::toInt).zipWithNext().first() }.zipWithNext().first()

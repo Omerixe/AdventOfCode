@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -12,7 +14,7 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput.split("\n")
-    val input = File("resources/input12.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input12.txt").toURI()).readLines()
 
     val allNodes = input.map { it.split("-") }.map {
         if (it[0] == "start") {

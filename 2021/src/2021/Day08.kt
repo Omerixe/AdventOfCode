@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -16,7 +18,7 @@ fun main() {
 
     //val input = dummyInput.split("\n").map { it.split(" | ").map { it.split(" ") } }
 
-    val input = File("resources/input08.txt").readLines().map { it.split(" | ").map { it.split(" ") } }
+    val input = File(ClassLoader.getSystemResource("2021/input08.txt").toURI()).readLines().map { it.split(" | ").map { it.split(" ") } }
 
     val result = input.map { line ->
         line[1].map { it.length }

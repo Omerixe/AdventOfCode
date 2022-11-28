@@ -1,3 +1,5 @@
+package `2021`
+
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -10,7 +12,7 @@ suspend fun main() {
 
     //val input = dummyInput.split(",")
 
-    val input = File("resources/input06.txt").readLines().first().split(",")
+    val input = File(ClassLoader.getSystemResource("2021/input06.txt").toURI()).readLines().first().split(",")
 
     var tempInput = input.map(String::toInt)
     (0 until 80).forEach {

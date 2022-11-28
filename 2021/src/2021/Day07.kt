@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 import java.lang.Math.abs
 import kotlin.math.roundToInt
@@ -10,7 +12,7 @@ fun main() {
 
     //val input = dummyInput.split(",").map(String::toInt)
 
-    val input = File("resources/input07.txt").readLines().first().split(",").map(String::toInt)
+    val input = File(ClassLoader.getSystemResource("2021/input07.txt").toURI()).readLines().first().split(",").map(String::toInt)
 
     val median = input.median()
     println("Median: $median")

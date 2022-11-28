@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -6,7 +8,7 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput
-    val input = File("resources/input16.txt").readLines().first()
+    val input = File(ClassLoader.getSystemResource("2021/input16.txt").toURI()).readLines().first()
 
     val binary = input.map {
         when (it) {

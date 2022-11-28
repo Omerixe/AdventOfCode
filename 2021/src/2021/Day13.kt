@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -26,7 +28,7 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput.split("\n")
-    val input = File("resources/input13.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input13.txt").toURI()).readLines()
 
     val dots = input.map { it.split(",") }.filter { it.size == 2 }.map { it.map(String::toInt) }
     val commands = input.map { it.split(" ") }.filter { it.size == 3 }.map { it[2].split("=") }

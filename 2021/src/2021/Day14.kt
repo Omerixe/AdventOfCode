@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -23,11 +25,11 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput.split("\n")
-    val input = File("resources/input14.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input14.txt").toURI()).readLines()
     val template = input.first()
-    //part1(input, template)
+    //`2022`.`2022`.part1(input, template)
 
-    // The idea in part1 did not finish for part2. I again had to check the replies in the reddit thread to figure out
+    // The idea in `2022`.`2022`.part1 did not finish for `2022`.part2. I again had to check the replies in the reddit thread to figure out
     // how to exactly group my input in order to avoid having a huge list/string
     val rules = input.map { it.split(" -> ") }.filter { it.size == 2 }.map {
         Pair(it[0], Pair("${it[0][0]}${it[1]}", "${it[1]}${it[0][1]}"))

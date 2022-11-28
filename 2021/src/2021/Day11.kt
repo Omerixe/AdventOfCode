@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -16,7 +18,7 @@ fun main() {
 
     //val input = dummyInput.split("\n").map{ it.split("").filter{it.isNotEmpty()}.map(String::toInt)}
     val input =
-        File("resources/input11.txt").readLines().map { it.split("").filter { it.isNotEmpty() }.map(String::toInt) }
+        File(ClassLoader.getSystemResource("2021/input11.txt").toURI()).readLines().map { it.split("").filter { it.isNotEmpty() }.map(String::toInt) }
 
     var inputPt1 = input.map { it.toMutableList() }.toMutableList()
     var flashCount = 0

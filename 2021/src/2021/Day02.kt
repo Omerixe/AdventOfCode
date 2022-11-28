@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -12,7 +14,7 @@ fun main() {
 
 /*val input = dummyInput.split("\n")*/
 
-    val input = File("resources/input02.txt")
+    val input = File(ClassLoader.getSystemResource("2021/input02.txt").toURI())
         .readLines()
 
     var depthPt1 = 0

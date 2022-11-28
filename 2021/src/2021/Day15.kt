@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -15,7 +17,7 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput.split("\n")
-    val input = File("resources/input15.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input15.txt").toURI()).readLines()
 
     val allRisks = input.map { it.split("").filter { it.isNotEmpty() }.map(String::toInt) }
     val maxXPt1 = allRisks.first().size - 1

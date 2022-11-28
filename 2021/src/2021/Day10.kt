@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 
@@ -16,7 +18,7 @@ fun main() {
     """.trimIndent()
 
     //val input = dummyInput.split("\n").map { it.split("") }
-    val input = File("resources/input10.txt").readLines().map { it.split("").filter { it.isNotEmpty() } }
+    val input = File(ClassLoader.getSystemResource("2021/input10.txt").toURI()).readLines().map { it.split("").filter { it.isNotEmpty() } }
 
     var errorCount = 0
     val autoCompletelist = mutableListOf<Long>()

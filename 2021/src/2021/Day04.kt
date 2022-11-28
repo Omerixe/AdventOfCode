@@ -1,3 +1,5 @@
+package `2021`
+
 import java.io.File
 
 fun main() {
@@ -24,7 +26,7 @@ fun main() {
     """.trimIndent()
 
     /*val input = dummyInput.split("\n")*/
-    val input = File("resources/input04.txt").readLines()
+    val input = File(ClassLoader.getSystemResource("2021/input04.txt").toURI()).readLines()
 
     val draw = input.first().split(",")
 
