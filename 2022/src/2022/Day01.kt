@@ -1,23 +1,74 @@
 package `2022`
 
+import java.io.File
+
 fun main() {
     val dummyInput = """
+        1000
+        2000
+        3000
+
+        4000
+
+        5000
+        6000
+
+        7000
+        8000
+        9000
+
+        10000
     """.trimIndent()
 
-    val numbers = dummyInput.split("\n").map(String::toInt)
+    val numbers = dummyInput.split("\n")
 
     /*val numbers = File(ClassLoader.getSystemResource("2022/input01.txt").toURI())
-        .readLines()
-        .map(String::toInt)*/
+        .readLines()*/
 
-    part1()
-    part2()
+    part1(numbers)
+    part2(numbers)
 }
 
-fun part1() {
+fun part1(numbers: List<String>) {
+    // First try
+    /*val newlist = mutableListOf<Int>()
+    var sum = 0
+    numbers.forEach {
+        if (it.isNotEmpty()) {
+            sum += it.toInt()
+        } else {
+            newlist.add(sum)
+            sum = 0
+        }
+    }
+    newlist.add(sum)
+    newlist.sortDescending()
+    println(newlist.first() )*/
 
+    //Second try
+    val newlist: List<Int> = numbers.fold(mutableListOf(0)) { list, element ->
+        if (element.isBlank()) {
+            list.add(0)
+        } else {
+            list[list.size - 1] = list[list.size - 1] + element.toInt()
+        }
+        list
+    }.sortedDescending()
+    println(newlist.first())
 }
 
-fun part2() {
-
+fun part2(numbers: List<String>) {
+    val newlist = mutableListOf<Int>()
+    var sum = 0
+    numbers.forEach {
+        if (it.isNotEmpty()) {
+            sum += it.toInt()
+        } else {
+            newlist.add(sum)
+            sum = 0
+        }
+    }
+    newlist.add(sum)
+    newlist.sortDescending()
+    println(newlist.take(3).sum() )
 }
