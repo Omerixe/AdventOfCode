@@ -28,9 +28,7 @@ object Day03 {
     //526821 too high
     //526518 too high
     fun part1(inputs: List<String>) {
-        val lineLenght = inputs.first().length
-        val paddingLine = listOf(".".repeat(lineLenght + 2))
-        val paddedInput = paddingLine + inputs.map { "." + it + "." } + paddingLine
+        val paddedInput = Helper.addPaddingTo2DList(inputs, '.')
 
         val resultList = mutableListOf<Pair<Int, Char>>()
 
@@ -43,7 +41,7 @@ object Day03 {
                 val starts = line.indexOfAll(number)
                 val signs = starts.map { numberStart ->
                     val results = (numberStart until (numberStart + number.length)).map { x ->
-                        getAllSurroundingElements(paddedInput, x, y).filterNot {
+                        Helper.getAllSurroundingElements(paddedInput, x, y).filterNot {
                             val character = it.first
                             character != null && character.isDigit() || character == '.'
                         }.map { it.first }
@@ -61,9 +59,7 @@ object Day03 {
     }
 
     fun part2(inputs: List<String>) {
-        val lineLenght = inputs.first().length
-        val paddingLine = listOf(".".repeat(lineLenght + 2))
-        val paddedInput = paddingLine + inputs.map { "." + it + "." } + paddingLine
+        val paddedInput = Helper.addPaddingTo2DList(inputs, '.')
         val multiplyMap = mutableMapOf<Pair<Int, Int>, List<Int>>()
 
         paddedInput.forEachIndexed { y, line ->
@@ -75,7 +71,7 @@ object Day03 {
                 val starts = line.indexOfAll(number)
                 val signs = starts.map { numberStart ->
                     val results = (numberStart until (numberStart + number.length)).map { x ->
-                        getAllSurroundingElements(paddedInput, x, y).filterNot {
+                        Helper.getAllSurroundingElements(paddedInput, x, y).filterNot {
                             val character = it.first
                             character != null && character.isDigit() || character == '.'
                         }
@@ -100,20 +96,6 @@ object Day03 {
         }
         println(multiplyMap.filter { it.value.size > 1 }.map { it.value.first() * it.value.last() }.sum())
     }
-}
-
-fun getAllSurroundingElements(map: List<String>, x: Int, y: Int): List<Pair<Char?, Pair<Int, Int>>> {
-    val realMap = map.map { it.toCharArray() }
-    val result = mutableListOf<Pair<Char, Pair<Int, Int>>>()
-    result.add(Pair(realMap[y - 1][x - 1], Pair(y - 1, x - 1))) //N1
-    result.add(Pair(realMap[y - 1][x], Pair(y - 1, x))) //N2
-    result.add(Pair(realMap[y - 1][x + 1], Pair(y - 1, x + 1))) //N3
-    result.add(Pair(realMap[y][x - 1], Pair(y, x - 1))) //N4
-    result.add(Pair(realMap[y][x + 1], Pair(y, x + 1))) //N5
-    result.add(Pair(realMap[y + 1][x - 1], Pair(y + 1, x - 1))) //N6
-    result.add(Pair(realMap[y + 1][x], Pair(y + 1, x))) //N7
-    result.add(Pair(realMap[y + 1][x + 1], Pair(y + 1, x + 1))) //N8
-    return result
 }
 
 fun String.indexOfAll(occurrence: String): List<Int> {
