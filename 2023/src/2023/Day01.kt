@@ -3,17 +3,7 @@ package `2023`
 import java.io.File
 
 fun main() {
-    val dummyInput = """
-two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen
-    """.trimIndent()
-
-//   val inputs = dummyInput.split("\n")
+//   val inputs = File(ClassLoader.getSystemResource("2023/dummy01.txt").toURI()).readLines()
 
     val inputs = File(ClassLoader.getSystemResource("2023/input01.txt").toURI()).readLines()
 

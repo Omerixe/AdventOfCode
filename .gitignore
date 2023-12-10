@@ -3,3 +3,5 @@
 /out
 /out
 /.idea
+input*.txt
+dummy*.txt
