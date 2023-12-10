@@ -23,6 +23,23 @@ object Helper {
         return result
     }
 
+    /**
+     *    N1
+     * N2 N0 N3
+     *    N4
+     * Where N0 is the given starting point in the middle by x and y
+     * Result: North = 0, West = 1, East = 2, South = 3
+     */
+    fun getStraightSurroundingElements(map: List<String>, x: Int, y: Int): List<Pair<Char, Pair<Int, Int>>> {
+        val realMap = map.map { it.toCharArray() }
+        val result = mutableListOf<Pair<Char, Pair<Int, Int>>>()
+        result.add(Pair(realMap[y - 1][x], Pair(y - 1, x))) //N1
+        result.add(Pair(realMap[y][x - 1], Pair(y, x - 1))) //N2
+        result.add(Pair(realMap[y][x + 1], Pair(y, x + 1))) //N3
+        result.add(Pair(realMap[y + 1][x], Pair(y + 1, x))) //N4
+        return result
+    }
+
     fun addPaddingTo2DList(input: List<String>, paddingChar: Char): List<String> {
         val lineLenght = input.first().length
         val paddingLine = listOf(paddingChar.toString().repeat(lineLenght + 2))
