@@ -45,4 +45,12 @@ object Helper {
         val paddingLine = listOf(paddingChar.toString().repeat(lineLenght + 2))
         return paddingLine + input.map { ".$it." } + paddingLine
     }
+
+    fun transpose(input: List<String>): List<String> {
+        return (0 until input.first().length).map { x ->
+            (input.indices).map { y ->
+                input[y][x]
+            }.joinToString("")
+        }
+    }
 }
