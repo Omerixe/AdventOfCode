@@ -1,0 +1,8 @@
+.DS_Store
+*.iml
+/out
+/lib
+/.idea
+input*.txt
+dummy*.txt
+day*.txt
