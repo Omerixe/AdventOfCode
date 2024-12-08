@@ -10,13 +10,6 @@ fun main() {
     Day06.part1(inputs)
     Day06.part2(inputs)
 }
-
-operator fun List<String>.get(pos: Pair<Int, Int>): Char = this[pos.y][pos.x]
-val Pair<Int, Int>.y: Int
-    get() = second
-val Pair<Int, Int>.x: Int
-    get() = first
-
 object Day06 {
     fun part1(input: List<String>) {
         val start = input.mapIndexedNotNull { index, line ->
