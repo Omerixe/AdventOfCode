@@ -27,3 +27,27 @@ operator fun Pair<Int, Int>.plus(other: Pair<Int, Int>): Pair<Int, Int> = Pair(t
 
 operator fun Pair<Int, Int>.minus(other: Pair<Int, Int>): Pair<Int, Int> = Pair(this.x - other.x, this.y - other.y)
 operator fun Pair<Int, Int>.times(times: Int): Pair<Int, Int> = Pair(this.x * times, this.y * times)
+
+/**
+ *    N1
+ * N2 N0 N3
+ *    N4
+ * Where N0 is the given starting point in the middle by x and y
+ * Result: North = 0, West = 1, East = 2, South = 3
+ */
+fun Pair<Int, Int>.getStraightSurroundingElements(map: List<String>): List<Pair<Char, Pair<Int, Int>>> {
+    val x = this.x
+    val y = this.y
+    val result = mutableListOf<Pair<Char, Pair<Int, Int>>>()
+    result.add(Pair(map[y - 1][x], Pair(x, y - 1))) //N1
+    result.add(Pair(map[y][x - 1], Pair(x - 1, y))) //N2
+    result.add(Pair(map[y][x + 1], Pair(x + 1, y))) //N3
+    result.add(Pair(map[y + 1][x], Pair(x, y + 1))) //N4
+    return result
+}
+
+fun List<String>.addPadding(paddingChar: Char): List<String> {
+    val lineLength = this.first().length
+    val paddingLine = listOf(paddingChar.toString().repeat(lineLength + 2))
+    return paddingLine + this.map { ".$it." } + paddingLine
+}
